@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>Продукты</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+</style>
+<body>
+    <header>
+		<h1>BestTuneStore</h1>
+	</header>
+    <div class="sidebar">
+        Filter
+        <select>
+            <option value="" disabled selected>Категория</option>
+        </select>
+        <select>
+            <option value="" disabled selected>Вид</option>
+        </select>
+        <select>
+            <option value="" disabled selected>Стоимость</option>
+            <option value="chip">От дешевого к дорогому</option>
+            <option value="rich">От дорогого к дешевому</option>
+        </select>
+        <hr>
+        <div>Цена</div> 
+        <div id="from_inp">От:</div>
+        <input type="range" name="from" id="from" value="0" min="0" max="100">
+        <div id="to_inp">До:</div>
+        <input type="range" name="to" id="to" value="100" min="0" max="100">
+        <input type="submit" value="Поиск">
+    </div>
+    <div class="pricelist">
+       
+        <div id="price-item">
+            <div class="prod_img"><img src="Media/item1.jpg"></div>
+            <div class="prod_title">Анальная затычка Анальная затычка<div class="tool_tip">Анальная затычка Анальная затычка</div></div>
+            <div class="prod_cost">Cost</div>
+           <input type="button" value="Открыть" onclick="document.location='\\product.html'"">
+        </div>
+    </div>
+    <script>
+        let slidefrom = document.getElementById("from");
+        let slideto = document.getElementById("to");
+        let inpfrom = document.getElementById("from_inp");
+        let inpto = document.getElementById("to_inp")
+
+        slidefrom.addEventListener("change", ()=>{
+            if(slidefrom.value > slideto.value){
+                slidefrom.value=slideto.value;
+                
+            }
+            inpfrom.innerHTML = "От: "+slidefrom.value;
+        })
+
+        slideto.addEventListener("change", ()=>{
+            if(slideto.value < slidefrom.value){
+                slideto.value=slidefrom.value;
+                
+            }
+            inpto.innerHTML = "До: "+slideto.value;
+        })
+    </script>
+</body>
+</html>
